@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <form id="form" action="/">
+  <button id="returnbutton" class="returnbutton" action="/" >⬅️ return to homepage</button>
+  </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <div class="shorturl">
+    <p hidden="true" id="shrturl"><%= url %></p>
+    <h1 class="text">Your short URL:</h1>
+
+    <body>
+      <div>
+        <a class="urle" href="<%= url %>"><%= url %></a>
+        <input id="fullurl" value="getLink()" hidden="true"></input>
+        <button id="copyBtn" class="copyBtn">📋</button>
+      </div>
+    </body>
+  </div>
+</html>
+<script>
+function getLink() {
+  let link = document.getElementById('shrturl').firstChild.wholeText
+  return link
+}
+let copyBtn = document.getElementById('copyBtn');
+copyBtn.onclick = function(){
+    let myCode = getLink()
+    let fullLink = document.createElement('input');
+    document.body.appendChild(fullLink);
+    fullLink.value = myCode;
+    fullLink.select();
+    document.execCommand("copy", false);
+    fullLink.remove();
+    copyBtn.innerHTML = "Copied To Clipboard!"
+    setTimeout(() => {
+      copyBtn.innerHTML = "📋"
+    }, 1000)
+}
+</script>
+<style>
+  .copyBtn {
+  color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #60a3bc;
+	padding: 20px;
+	border-radius: 50px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+.copyBtn:hover {
+	background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+.returnbutton {
+  color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #60a3bc;
+	padding: 20px;
+	border-radius: 50px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+.returnbutton:hover {
+	background: #434343;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+  .shorturl {
+    display: grid;
+    place-items: center;
+    font-family: Arial, sans-serif;
+    margin-top: 19%;
+    font-size: 2rem;
+  }
+  .text {
+    color: white;
+    font-family: Arial, sans-serif;
+    text-shadow: 1px 1px 0 #000;
+  }
+  .urle {
+    text-shadow: 1px 1px 0 #000;
+    color: white;
+  }
+  body {
+    background: #4e54c8; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #8f94fb,
+      #4e54c8
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #8f94fb,
+      #4e54c8
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+</style>

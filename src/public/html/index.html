@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div class="foerm">
+    <form id="form" action="url">
+      <label class="url" for="URL">Enter url: </label>
+      <input
+        class="urlinput"
+        placeholder="your url here"
+        id="URL"
+        type="text"
+        name="url"
+        required
+      />
+      <input type="submit" value="submit" id="submit" class="submit" />
+    </form>
+  </div>
+</html>
+<style>
+  .url {
+    text-shadow: 2px 2px 0 #000;
+    font-family: Arial, sans-serif;
+    padding: 15px 32px;
+    border-radius: 12px;
+    border-color: #121212;
+    color: white;
+    font-size: 40px;
+  }
+  .foerm {
+    display: grid;
+    place-items: center;
+    margin-top: 25%;
+    font-size: 2rem;
+  }
+  .urlinput {
+    font-size: 2rem;
+    padding: 15px 32px;
+    border-radius: 12px;
+    background-color: white;
+  }
+  .submit {
+    font-size: 2rem;
+    background-color: white;
+    border: 2rem;
+    border-color: #121212;
+    padding: 15px 32px;
+    border-radius: 12px;
+  }
+  body {
+    background: #4e54c8; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #8f94fb,
+      #4e54c8
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #8f94fb,
+      #4e54c8
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+</style>
